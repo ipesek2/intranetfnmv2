@@ -92,7 +92,7 @@
                                 Administracija
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Mrežni izpis</a>
+                                <a class="dropdown-item" href="enote">Org. enote</a>
                                 <a class="dropdown-item" href="#">Mrežni izpis 2</a>
                             </div>
                         </li>
@@ -103,7 +103,8 @@
                         <!-- Authentication Links -->
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Uporabnik {{ Auth::user()->name }} <span class="caret"></span>
+                                    Uporabnik  <span class="caret"></span>
+
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

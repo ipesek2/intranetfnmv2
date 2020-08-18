@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'email', 'password',
     ];
 
     /**
@@ -36,4 +36,32 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function profil()
+    {
+        return $this->hasOne(UserProfile::class);
+    }
+
+    public function enota(){
+        return $this->hasOne(Enota::class);
+    }
+
+    /**
+     * Metoda vrne ustrezno obliko naziva glede na spol
+     *
+     * @return mixed
+     */
+    public function dobiNaziv(){
+        if ($this->profil->spol === 1){
+            return $this->profil->naziv->m_naziv;
+        }
+        return $this->profil->naziv->z_naziv;
+    }
+
+    public function jeMoski(){
+        if ($this->profil->spol === 1){
+            return true;
+        }
+        return false;
+    }
 }
