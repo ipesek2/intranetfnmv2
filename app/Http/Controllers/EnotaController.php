@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Enota;
-use App\User;
 use App\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class EnotaController extends Controller
 {
@@ -39,11 +39,32 @@ class EnotaController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        return "uspelo";
+
+        $messages = [
+            'required' => 'Polje :attribute je obvezno.',
+            'unique' => 'Takšna enota že obstaja'
+        ];
+        $validator = Validator::make($request->all(), [
+            'naziv' => 'required|unique:App\Enota',
+            "vodja" => 'required',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return redirect('enote/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $enota = new Enota();
+
+        $enota->fill($request->all());
+        $enota->save();
+        $besedilo = "Org. enota {$request->naziv} uspešno dodana";
+
+        return view('enota.uspeh')->with("besedilo",$besedilo);
     }
 
     /**
