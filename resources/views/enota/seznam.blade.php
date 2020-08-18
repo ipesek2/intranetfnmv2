@@ -41,6 +41,8 @@
 
                                 </tbody>
                             </table>
+                            <br>
+                            <a href="enote/create"><input class="btn btn-primary" type="button" value="Ustvari novo"></a>
                         </div>
                     </div>
                 </div>

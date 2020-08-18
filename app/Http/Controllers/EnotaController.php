@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Enota;
+use App\User;
+use App\UserProfile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EnotaController extends Controller
 {
@@ -25,7 +28,11 @@ class EnotaController extends Controller
      */
     public function create()
     {
-        //
+        $users = UserProfile::select("user_id", DB::raw("CONCAT(user_profiles.priimek,' ',user_profiles.ime) as polno_ime"))->orderBy("priimek","asc")
+            ->pluck('polno_ime', 'user_id');
+
+
+        return view('enota.ustvari')->with('users',$users);
     }
 
     /**
@@ -36,7 +43,7 @@ class EnotaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "uspelo";
     }
 
     /**
