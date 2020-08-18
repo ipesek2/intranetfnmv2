@@ -32,7 +32,10 @@
                                         <td>{{$enota->naziv}}</td>
                                         <td>{{$enota->dobiPredstojnikIme()}}</td>
                                         <td>{{$enota->dobiNamestnikIme()}}</td>
-                                        <td></td>
+                                        <td>
+                                            <span class="oi oi-pencil" title="Uredi" aria-hidden="true"></span>
+                                            <span class="oi oi-trash" title="Izbriši" aria-hidden="true"></span>
+                                        </td>
                                     </tr>
                                 @endforeach
 
