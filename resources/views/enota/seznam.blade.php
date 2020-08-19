@@ -34,13 +34,13 @@
                                         <td>{{$enota->dobiNamestnikIme()}}</td>
                                         <td class="form-inline">
 
-                                                {!! Form::open(['url' => 'enote/'.$enota->id, 'method' => 'delete', 'id' => 'form'.$enota->id ])  !!}
+                                                {!! Form::open(['url' => 'enota/'.$enota->id.'/edit', 'method' => 'get', 'id' => 'form_ed_'.$enota->id ])  !!}
 {{--                                                <span class="oi oi-pencil mr-1" title="Izbriši" aria-hidden="true" onclick="potrdiIzbris('{{$enota->naziv}}','form{{$enota->id}}')" role="button"></span>--}}
-                                                {{ Form::button('<i class="oi oi-pencil"></i>', ['class' => 'btn btn-sm btn-primary', 'data-toggle' => 'tooltip', 'data-placement' => 'top',  'title' => 'Izbriši', 'type' => 'submit']) }}
+                                                {{ Form::button('<i class="oi oi-pencil"></i>', ['class' => 'btn btn-sm btn-primary', 'data-toggle' => 'tooltip', 'data-placement' => 'top',  'title' => 'Uredi', 'type' => 'submit']) }}
                                                 {!! Form::close() !!}
 
                                             @if ($enota->user_count === 0)
-                                                {!! Form::open(['url' => 'enote/'.$enota->id, 'method' => 'delete', 'id' => 'form_del_'.$enota->id ])  !!}
+                                                {!! Form::open(['url' => 'enota/'.$enota->id, 'method' => 'delete', 'id' => 'form_del_'.$enota->id ])  !!}
 {{--                                                <span class="oi oi-trash ml-1" title="Izbriši" aria-hidden="true" onclick="potrdiIzbris('{{$enota->naziv}}','form_del_{{$enota->id}}')" role="button"></span>--}}
                                                 {{ Form::button('<i class="oi oi-trash"></i>', ['class' => 'btn btn-sm btn-danger', 'data-toggle' => 'tooltip', 'data-placement' => 'top',  'title' => 'Izbriši', 'onclick' => "potrdiIzbris('$enota->naziv','form_del_$enota->id')"]) }}
                                                 {!! Form::close() !!}
@@ -52,7 +52,7 @@
                                 </tbody>
                             </table>
                             <br>
-                            <a href="enote/create"><input class="btn btn-primary" type="button" value="Ustvari novo"></a>
+                            <a href="enota/create"><input class="btn btn-primary" type="button" value="Ustvari novo"></a>
                         </div>
                     </div>
                 </div>

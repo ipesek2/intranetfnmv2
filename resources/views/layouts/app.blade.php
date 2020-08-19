@@ -91,7 +91,7 @@
                                 Administracija
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="enote">Org. enote</a>
+                                <a class="dropdown-item" href="enota">Org. enote</a>
                                 <a class="dropdown-item" href="#">Mrežni izpis 2</a>
                             </div>
                         </li>

@@ -53,7 +53,7 @@ class EnotaController extends Controller
         ], $messages);
 
         if ($validator->fails()) {
-            return redirect('enote/create')
+            return redirect('enota/create')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -75,30 +75,54 @@ class EnotaController extends Controller
      */
     public function show(Enota $enota)
     {
-        //
+        return redirect('/enota');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Enota  $enota
-     * @return \Illuminate\Http\Response
+     * @param  $id
      */
-    public function edit(Enota $enota)
+    public function edit($id)
     {
-        //
+        $users = UserProfile::select("user_id", DB::raw("CONCAT(user_profiles.priimek,' ',user_profiles.ime) as polno_ime"))->orderBy("priimek","asc")
+            ->pluck('polno_ime', 'user_id');
+
+        $enota = Enota::findOrFail($id);
+        return view('enota.uredi', ["enota"=> $enota, "users" => $users]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Enota  $enota
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Enota $enota)
+    public function update(Request $request, $id)
     {
-        //
+        $messages = [
+            'required' => 'Polje :attribute je obvezno.',
+            'unique' => 'Takšna enota že obstaja'
+        ];
+        $validator = Validator::make($request->all(), [
+            'naziv' => ['required',\Illuminate\Validation\Rule::unique('enotas')->ignore($id)],
+            "vodja" => ['required'],
+        ], $messages);
+
+        if ($validator->fails()) {
+            return redirect('enota/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $enota = Enota::findOrFail($id);
+
+        $enota->fill($request->all());
+        $enota->save();
+        $besedilo = "Org. enota {$request->naziv} uspešno shranjena";
+
+        return view('enota.uspeh')->with("besedilo",$besedilo);
+
     }
 
     /**

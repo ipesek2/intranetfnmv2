@@ -11,7 +11,7 @@
                         <p class="font-weight-bolder">{{$besedilo}}</p>
 
                         <br>
-                        <a href="enote"><input class="btn btn-primary" type="button" value="Nazaj na seznam"></a>
+                        <a href="enota"><input class="btn btn-primary" type="button" value="Nazaj na seznam"></a>
 
                     </div>
                 </div>
