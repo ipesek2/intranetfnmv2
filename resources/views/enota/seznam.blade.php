@@ -33,8 +33,8 @@
                                         <td>{{$enota->dobiPredstojnikIme()}}</td>
                                         <td>{{$enota->dobiNamestnikIme()}}</td>
                                         <td>
-                                            <span class="oi oi-pencil" title="Uredi" aria-hidden="true"></span>
-                                            <span class="oi oi-trash" title="Izbriši" aria-hidden="true"></span>
+                                            <span class="oi oi-pencil" title="Uredi" aria-hidden="true" role="button"></span>
+                                            <span class="oi oi-trash" title="Izbriši" aria-hidden="true" onclick="potrdiIzbris('{{$enota->naziv}}')" role="button"></span>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -49,4 +49,23 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('skripte')
+    <script>
+        var potrdiIzbris = function(enota){
+            bootbox.confirm({
+                size: "small",
+                locale: "sl",
+                message: "Si prepričan, da želiš izbrisati " + enota + "?",
+                callback: function(result) {
+                    if (result === true){
+                        console.log("true");
+                    }
+                }
+            });
+        }
+
+
+    </script>
 @endsection
