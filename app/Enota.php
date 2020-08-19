@@ -9,7 +9,7 @@ class Enota extends Model
     protected $fillable = [ 'naziv', 'vodja', 'namestnik'];
 
     public function user(){
-        return $this->hasMany(User::class);
+        return $this->hasMany(UserProfile::class);
     }
 
 

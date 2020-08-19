@@ -17,7 +17,7 @@ class EnotaController extends Controller
      */
     public function index()
     {
-        $enote = Enota::all();
+        $enote = Enota::withCount('user')->get();
         return view('enota.seznam')->with("enote",$enote);
     }
 
@@ -105,10 +105,12 @@ class EnotaController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Enota  $enota
-     * @return \Illuminate\Http\Response
      */
-    public function destroy(Enota $enota)
+    public function destroy($id)
     {
-        //
+        $en = Enota::findOrFail($id);
+        $en->delete();
+
+        return back();
     }
 }
