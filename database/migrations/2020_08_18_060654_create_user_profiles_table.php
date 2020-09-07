@@ -18,7 +18,7 @@ class CreateUserProfilesTable extends Migration
             $table->integer('user_id')->unique();
             $table->string("ime");
             $table->string("priimek");
-            $table->integer("naziv_id")->unsigned();
+            $table->integer("naziv_id")->unsigned()->nullable();
             $table->integer("enota_id")->unsigned();
             $table->smallInteger("spol");
             $table->boolean("aktiven");

@@ -22,6 +22,7 @@
         "sass-loader": "^8.0.0",
         "vue-template-compiler": "^2.6.11",
         "open-iconic": "^1.1.1",
-        "bootbox": "^5.4.0"
+        "bootbox": "^5.4.0",
+        "bootstrap-datepicker": "^1.9.0"
     }
 }

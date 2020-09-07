@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Enota;
+use App\Naziv;
 use App\User;
 use App\UserProfile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserProfileController extends Controller
 {
@@ -29,7 +32,13 @@ class UserProfileController extends Controller
      */
     public function create()
     {
-        //
+        $enote = Enota::all(['id','naziv'])->pluck('naziv','id');
+        $naziv = Naziv::all(['id','m_naziv'])->pluck('m_naziv','id');
+        $osebe = UserProfile::select("user_id", DB::raw("CONCAT(user_profiles.priimek,' ',user_profiles.ime) as polno_ime"))
+            ->where("aktiven", 1)
+            ->orderBy("priimek","asc")
+            ->pluck('polno_ime', 'user_id');
+        return view("users.ustvari", compact('enote', 'naziv', 'osebe'));
     }
 
     /**

@@ -14,6 +14,12 @@ class NazivTableSeeder extends Seeder
         \App\Naziv::truncate();
 
         \App\Naziv::create([
+            'm_naziv' => 'brez naziva',
+            'z_naziv' => 'brez naziva',
+            'kratek_naziv' => ''
+        ]);
+
+        \App\Naziv::create([
             'm_naziv' => 'asistent',
             'z_naziv' => 'asistentka',
             'kratek_naziv' => 'asist.'

@@ -91,8 +91,8 @@
                                 Administracija
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="enota">Org. enote</a>
-                                <a class="dropdown-item" href="#">Mrežni izpis 2</a>
+                                <a class="dropdown-item" href="/enota">Org. enote</a>
+                                <a class="dropdown-item" href="/uporabnik">Uporabniki</a>
                             </div>
                         </li>
                     </ul>
@@ -102,7 +102,12 @@
                         <!-- Authentication Links -->
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Uporabnik  <span class="caret"></span>
+                                    @if(empty(Auth::user()->profil->ime))
+                                        {{ Auth::user()->email }}
+                                    @else
+                                        {{ Auth::user()->profil->ime }}  {{ Auth::user()->profil->priimek }}
+                                    @endif
+                                        <span class="caret"></span>
 
                                 </a>
 
@@ -130,7 +135,7 @@
         </main>
     </div>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
 @yield('skripte')
 </body>
