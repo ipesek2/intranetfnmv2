@@ -22,6 +22,11 @@
                             {!! Form::text('email', null, ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
+                            {!! Form::label('password', 'Geslo') !!}
+                            {!! Form::text('password', null, ['class' => 'form-control']) !!}
+                        </div>
+
+                        <div class="form-group">
                             {!! Form::label('naziv', ' Akademski naziv') !!}
                             {!! Form::select('naziv', $naziv, null, ['class' => 'form-control', 'placeholder' => 'Določi akademski naziv']) !!}
                         </div>
@@ -44,18 +49,16 @@
                             {!! Form::label('izvolitev','Veljavnost izvolitve v naziv') !!}<br>
                             {!! Form::radio('izvolitev', '1') !!} brez izvolitve ali trajna izvolitev <br>
                             {!! Form::radio('izvolitev', '2') !!} Izvolitev do {!! Form::text('izvolitev_do', null, ['class' => 'ml-2', 'id '=> 'datum_izvolitev']) !!}
-{{--                            TODO če klikneš na izvolitev do, se RB sam izbere--}}
                         </div>
 
                         <div class="form-group">
                             {!! Form::label('potrjevanje','Potrjevanje dopustov') !!}<br>
                             {!! Form::radio('potrjevanje', '1', true) !!} Predstojnik org. enote (oddelka, inštituta, itd.) <br>
                             {!! Form::radio('potrjevanje', '2') !!} Oseba (mentor, itd.): {!! Form::select('potrjevanje_oseba', $osebe, null, ['id '=> 'potrjevanje_oseba', 'placeholder' => 'Izberi...', 'class' =>'ml-2']) !!}
-                            {{--                            TODO če klikneš na izvolitev do, se RB sam izbere--}}
                         </div>
 
                         <div class="form-group">
-                        {!! Form::submit('Ustvari',['class' => 'btn btn-primary']) !!}
+                        {!! Form::submit('Ustvari uporabnika',['class' => 'btn btn-primary']) !!}
                         {!! Form::close() !!}
                         </div>
 
@@ -71,7 +74,6 @@
                             </div>
                         @endif
                     </div>
-{{--                    'ime', 'priimek','naziv_id', 'enota_id', 'spol', 'aktiven', 'izvolitev_do', 'potrjevanje'--}}
                 </div>
             </div>
         </div>
@@ -86,6 +88,17 @@
                 weekStart: 1,
                 format: 'd. m. yyyy'
             });
+
+            $("#datum_izvolitev").change( function (){
+                $("input[name=izvolitev][value='2']").prop("checked",true);
+                $("input[name=izvolitev][value='1']").prop("checked",false);
+            });
+
+            $("#potrjevanje_oseba").change( function (){
+                $("input[name=potrjevanje][value='2']").prop("checked",true);
+                $("input[name=potrjevanje][value='1']").prop("checked",false);
+            });
+
         })
 
 

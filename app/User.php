@@ -43,7 +43,7 @@ class User extends Authenticatable
     }
 
     public function enota(){
-        return $this->hasOne(Enota::class);
+        return $this->belongsTo(Enota::class);
     }
 
     /**
@@ -58,10 +58,27 @@ class User extends Authenticatable
         return $this->profil->naziv->z_naziv;
     }
 
+    public function dobiPotrjevanje(){
+        if ($this->profil->potrjevanje === 0){
+            return "";
+        }
+        $oseba = User::find($this->profil->potrjevanje);
+        return "{$oseba->profil->ime} {$oseba->profil->priimek}";
+    }
+
     public function jeMoski(){
         if ($this->profil->spol === 1){
             return true;
         }
         return false;
     }
+
+    public function jeAktiven(){
+        if ($this->profil->aktiven === 1){
+            return true;
+        }
+        return false;
+    }
+
+
 }

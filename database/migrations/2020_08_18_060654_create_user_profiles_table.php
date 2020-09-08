@@ -21,7 +21,7 @@ class CreateUserProfilesTable extends Migration
             $table->integer("naziv_id")->unsigned()->nullable();
             $table->integer("enota_id")->unsigned();
             $table->smallInteger("spol");
-            $table->boolean("aktiven");
+            $table->boolean("aktiven")->comment("zaposlen na FNM = 1, zunanji = 2");
             $table->dateTime("izvolitev_do")->nullable();
             $table->integer("potrjevanje")->comment("predstojnik = 0, sicer id osebe");
             $table->timestamps();

@@ -35,7 +35,6 @@
                                         <td class="form-inline">
 
                                                 {!! Form::open(['url' => 'enota/'.$enota->id.'/edit', 'method' => 'get', 'id' => 'form_ed_'.$enota->id ])  !!}
-{{--                                                <span class="oi oi-pencil mr-1" title="Izbriši" aria-hidden="true" onclick="potrdiIzbris('{{$enota->naziv}}','form{{$enota->id}}')" role="button"></span>--}}
                                                 {{ Form::button('<i class="oi oi-pencil"></i>', ['class' => 'btn btn-sm btn-primary', 'data-toggle' => 'tooltip', 'data-placement' => 'top',  'title' => 'Uredi', 'type' => 'submit']) }}
                                                 {!! Form::close() !!}
 

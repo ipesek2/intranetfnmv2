@@ -11864,3 +11864,7 @@ label {
   font-style: italic;
 }
 
+.border-gray {
+  border-color: #dee2e6;
+}
+
