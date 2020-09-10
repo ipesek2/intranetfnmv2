@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header bg-light">Ustvari novo org. enoto</div>
+                    <div class="card-header bg-light">Uredi org. enoto</div>
 
                     <div class="card-body">
                         {!! Form::model($enota, ['url' => 'enota/'.$enota->id, 'method' => 'put']) !!}

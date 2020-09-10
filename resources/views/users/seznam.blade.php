@@ -14,7 +14,7 @@
                         </h4>
                     </div>
 
-                    <div class="card-body small ">
+                    <div class="card-body small seznam">
                         <div class="row bg-light border border-gray">
                             <div class="col-6 col-md ">
                                 Ime in priimek

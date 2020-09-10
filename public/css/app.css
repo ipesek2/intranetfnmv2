@@ -11868,3 +11868,7 @@ label {
   border-color: #dee2e6;
 }
 
+.seznam .row:hover {
+  background-color: #dee2e6;
+}
+

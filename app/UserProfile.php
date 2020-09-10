@@ -24,11 +24,19 @@ class UserProfile extends Model
 
     public function setIzvolitevDoAttribute($value)
     {
-        $this->attributes['izvolitev_do'] = Carbon::createFromFormat('d. n. Y',$value)->format('Y-m-d');
+        if (empty($value)){
+            $this->attributes['izvolitev_do'] = null;
+        }
+        else {
+            $this->attributes['izvolitev_do'] = Carbon::createFromFormat('d. n. Y', $value)->format('Y-m-d');
+        }
     }
 
     public function getIzvolitevDoAttribute($value)
     {
+        if (empty($value)){
+            return null;
+        }
         return Carbon::parse($value)->format('d. m. Y');
     }
 
