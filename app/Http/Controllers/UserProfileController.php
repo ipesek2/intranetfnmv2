@@ -172,7 +172,7 @@ class UserProfileController extends Controller
 
         $uporabnik->email = $request->email;
         if (!empty($request->password)){
-            $uporabnik->password;
+            $uporabnik->password = bcrypt($request->password);
         }
         $uporabnik->save();
 

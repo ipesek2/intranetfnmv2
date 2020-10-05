@@ -37,7 +37,7 @@
                                 Prisotnost
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Mrežni izpis</a>
+                                <a class="dropdown-item" href="/prisotnost">Koledar</a>
                                 <a class="dropdown-item" href="#">Mrežni izpis 2</a>
                             </div>
                         </li>

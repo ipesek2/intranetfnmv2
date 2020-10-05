@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Auth::routes(['register' => false]);
 
 Route::group(['middleware' => ['auth']], function () {
@@ -24,4 +26,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/novogeslo', 'Auth\ResetPasswordController@showResetForm');
     Route::resource('/uporabnik', 'UserProfileController')->except(["show"]);
     Route::resource('/enota', 'EnotaController');
+    Route::resource('/prisotnost', 'PrisotnostController');
 });

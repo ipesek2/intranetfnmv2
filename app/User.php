@@ -46,6 +46,15 @@ class User extends Authenticatable
         return $this->belongsTo(Enota::class);
     }
 
+    public function naziv(){
+        return $this->belongsTo(Naziv::class);
+    }
+
+    public function prisotnost(){
+        return $this->hasMany(Prisotnost::class);
+    }
+
+
     /**
      * Metoda vrne ustrezno obliko naziva glede na spol
      *

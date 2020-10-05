@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UserProfileTableSeeder::class);
         $this->call(NazivTableSeeder::class);
         $this->call(EnotasTableSeeder::class);
+        $this->call(TipPrisotnostSeeder::class);
     }
 }
