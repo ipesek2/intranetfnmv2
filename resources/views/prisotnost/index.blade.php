@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row justify-content-center">
-        <div class="col-md-8 ">
+        <div class="col-md-8 justify-content-center">
 
             <div class="btn-group col justify-content-center ">
 
@@ -21,8 +21,19 @@
 
 
             </div>
-            <div class="row d-none d-sm-flex p-1 bg-primary text-white">
 
+            <h5 class="text-center">Legenda</h5>
+            <div class="row mb-3  justify-content-center">
+                <div class="col-sm-1 bg-stroski p-2">Potni stroški</div>
+                <div class="col-sm-1 bg-dopust p-2">Dopust</div>
+                <div class="col-sm-1 bg-potni-nalog p-2">Potni nalog</div>
+                <div class="col-sm-1 bg-kolektivni-dopust p-2">Kolektivni d.</div>
+                <div class="col-sm-1 bg-bolniska p-2">Bolniška</div>
+                <div class="col-sm-1 bg-evidencni-pn p-2">Evidenčni PN</div>
+
+            </div>
+
+            <div class="row d-none d-sm-flex p-1 bg-primary text-white">
                 <h5 class="col-sm p-1 text-center">Ponedeljek</h5>
                 <h5 class="col-sm p-1 text-center">Torek</h5>
                 <h5 class="col-sm p-1 text-center">Sreda</h5>
@@ -31,6 +42,7 @@
                 <h5 class="col-sm p-1 text-center">Sobota</h5>
                 <h5 class="col-sm p-1 text-center">Nedelja</h5>
             </div>
+
 
         <div class="row border border-right-0 border-bottom-0">
                 @for($i = 1; $i < $firstDay->dayOfWeekIso; $i++ )
@@ -45,11 +57,13 @@
                 @endfor
 
                 @for($j = 1; $j <= $today->daysInMonth; $j++ )
-                    <div class="day col-sm p-2 border border-left-0 border-top-0 text-truncate ">
+                    <div class="day col-sm p-2 border border-left-0 border-top-0 text-truncate">
                         <h5 class="row align-items-center">
                             <span class="date col-1">{{$j}}</span>
                             <small class="col d-sm-none text-center text-muted">{{\Carbon\Carbon::createFromDate($today->year,$today->month,$j)->locale('sl')->dayName}}</small>
-                            <span class="col-1"></span>
+                            <span class="col-1">
+                                <input type="checkbox" id="day{{$j}}" />
+                            </span>
                         </h5>
                         <p class="d-sm-none">No events</p>
                     </div>

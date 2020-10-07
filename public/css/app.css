@@ -11894,3 +11894,31 @@ label {
   }
 }
 
+.bg-doma {
+  background-color: #eafaf1;
+}
+
+.bg-stroski {
+  background-color: #d6eaf8;
+}
+
+.bg-potni-nalog {
+  background-color: #fdebd0;
+}
+
+.bg-dopust {
+  background-color: #fdedec;
+}
+
+.bg-kolektivni-dopust {
+  background-color: #fadbd8;
+}
+
+.bg-evidencni-pn {
+  background-color: #fef9e7;
+}
+
+.bg-bolniska {
+  background-color: #fbeee6;
+}
+
